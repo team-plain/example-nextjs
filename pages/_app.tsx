@@ -1,8 +1,35 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import React from "react";
+import { PlainProvider } from "@team-plain/react-chat-ui";
+import "../styles/stylesheet.css";
+import type { AppProps } from "next/app";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+// Function that fetches the signed JWT token
+async function getCustomerToken() {
+  return fetch("/api/get-customer-token")
+    .then((res) => res.json())
+    .then((res) => res.customerToken);
 }
 
-export default MyApp
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    /**
+     * The PlainProvider needs:
+     *
+     * - `AppKey` (string):
+     *          You get this from the workspace you've created under settings -> app at app.plain.com
+     *
+     * - `getCustomerToken` (() => Promise<string | null>):
+     *          It's up to you how you want to expose the customer token to the frontend
+     *          In this example we 've exposed via an API
+     *
+     */
+    <PlainProvider
+      appKey="appKey_uk_01FVCA9P14STJM1YCQ0QVBW92N"
+      getCustomerToken={getCustomerToken}
+    >
+      <Component {...pageProps} />
+    </PlainProvider>
+  );
+}
+
+export default MyApp;

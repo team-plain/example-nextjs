@@ -12,23 +12,27 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Step 1: Create a private/public key pair
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```
+bash <(curl -fsSL https://raw.githubusercontent.com/team-plain/generate-rsa-key-script/main/generate_rsa_key_pairs.sh)
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Step 2: Create a workspace app
 
-## Learn More
+To create a workspace app, log in into the Plain App at [https://app.plain.com](https://app.plain.com/) .
 
-To learn more about Next.js, take a look at the following resources:
+Then select your workspace and then navigate to “Apps” from the top left menu
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Once you’ve created your Workspace App, press [+ Add public key] and paste the entire contents of `plain.key.pem.pub` we generated above `(including the ---BEGINS..`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Step 3: Add private key to get-customer-token.ts
 
-## Deploy on Vercel
+Go to `/pages/api/get-customer-token.ts` and add your private key
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+  const token = jwt.sign(customer, PRIVATE_KEY, {
+    algorithm: "RS256",
+    expiresIn: "1h",
+  });
+```
