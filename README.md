@@ -36,13 +36,13 @@ We read the private key from a variable we export on the computer. There are lot
 If you did not change the name or path of the private and public key you can use this command to run the development server
 
 ```
-export PRIVATEKEY=$(cat ./plain.key.pem) && npm run dev
+export KEY=$(cat ./plain.key.pem) && npm run dev
 ```
 
 If you did change the name or path you need to insert that like the example below:
 
 ```
-export PRIVATEKEY=$(cat path-to/your-key.key.pem) && npm run dev
+export KEY=$(cat path-to/your-key.key.pem) && npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You should now see the React Chat UI and be able to chat to your workspace at [https://app.plain.com](https://app.plain.com/)
@@ -53,9 +53,9 @@ If you wish to read the private key differently (e.g. from an .env.local file) y
 Change `process.env.PRIVATEKEY` to where you are getting your private key from.
 
 ```
-  const privateKey = process.env.PRIVATEKEY || privateKeyNotDefined();
+  const privateKey = process.env.KEY || privateKeyNotDefined();
 
-  const token = jwt.sign(customer, PRIVATE_KEY, {
+  const token = jwt.sign(customer, privateKey, {
     algorithm: "RS256",
     expiresIn: "1h",
   });
