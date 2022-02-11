@@ -8,7 +8,17 @@ This is an example of a NextJS project using the React Chat UI from Plain.com.
 There are a few steps you need to do in order for the chat to work. Follow the guide below:
 <br /> <br /> <br />
 
-## Step 1: 🔐 Create a private/public key pair
+## Step 1: 📦 Install packages
+
+Install packages
+
+```bash
+npm install
+```
+
+<br /> <br />
+
+## Step 2: 🔐 Create a private/public key pair
 
 For greater security Plain uses an RSA key pair to verify that all customer details you provide are genuine. The private key should never be shared with us.
 
@@ -20,7 +30,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/team-plain/generate-rsa-key-
 
 <br /> <br />
 
-## Step 2: 🖥 Create a workspace app
+## Step 3: 🖥 Create a workspace app
 
 To create a workspace app, log in into the Plain App at [https://app.plain.com](https://app.plain.com/) .
 
@@ -30,19 +40,9 @@ Once you’ve created your Workspace App, press [+ Add public key] and paste the
 
 <br /> <br />
 
-## Step 3: 📦 Install packages
-
-Install packages
-
-```bash
-npm install
-```
-
-<br /> <br />
-
 ## Step 4: 🔑 Add your appKey
 
-The app key is a unique ID that Plain uses to know which workspace app you are setting up chat for.
+The app key is the unique ID for your workspace app. You need it to instruct the Chat UI which workspace app (and which corresponding workspace) it should communicate with.
 
 To find the appKey go to the workspace app you created in Step 2 and copy it. It should look something like: `appKey_uk_01FTGG89Q8N0HEN3572CRN0F2T`
 
