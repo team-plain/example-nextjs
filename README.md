@@ -46,10 +46,10 @@ The app key is the unique ID for your workspace app. You need it to instruct the
 
 To find the appKey go to the workspace app you created in Step 2 and copy it. It should look something like: `appKey_uk_01FTGG89Q8N0HEN3572CRN0F2T`
 
-Create a `.env.local` file in the root folder and add it like this:
+Run this command to create a `.env.local.` containing your app key.
 
 ```
-NEXT_PUBLIC_APP_KEY='appKey_uk_01FVCA9P14STJM1YCQ0QVBW92N'
+touch env.local && echo -e "NEXT_PUBLIC_APP_KEY='ADD YOUR APP KEY HERE'" >> env.local
 ```
 
 <br /> <br />
@@ -60,13 +60,13 @@ We read the private key from a variable we export on the computer. There are lot
 If you did not change the name or path of the private and public key you can use this command to run the development server
 
 ```
-export KEY=$(cat ./plain.key.pem) && npm run dev
+export PRIVATE_KEY=$(cat ./plain.key.pem) && npm run dev
 ```
 
 If you did change the name or path you need to insert that like the example below:
 
 ```
-export KEY=$(cat path-to/your-key.key.pem) && npm run dev
+export PRIVATE_KEY=$(cat path-to/your-key.key.pem) && npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You should now see the React Chat UI and be able to chat to your workspace at [https://app.plain.com](https://app.plain.com/)
@@ -76,10 +76,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Optional: ⚙️
 
 If you wish to read the private key differently (e.g. from an .env.local file) you need to add the private key in [/pages/api/get-customer-token.ts](/pages/api/get-customer-token.ts).
-Change `process.env.PRIVATEKEY` to where you are getting your private key from.
+Change `process.env.PRIVATE_KEY` to where you are getting your private key from.
 
 ```
-  const privateKey = process.env.KEY || privateKeyNotDefined();
+  const privateKey = process.env.PRIVATE_KEY || privateKeyNotDefined();
 
   const token = jwt.sign(customer, privateKey, {
     algorithm: "RS256",

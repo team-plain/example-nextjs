@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 function privateKeyNotDefined(): string {
-  throw new Error("KEY not defined");
+  throw new Error("PRIVATE_KEY not defined");
 }
 
 // The customer in the JWT has the following fields:
@@ -54,7 +54,7 @@ export default function handler(
     externalId: "your_id",
   };
 
-  const privateKey = process.env.KEY || privateKeyNotDefined();
+  const privateKey = process.env.PRIVATE_KEY || privateKeyNotDefined();
 
   // The JWT must also be signed with the private key was created when generating the RSA key pair.
   const token = jwt.sign(customer, privateKey, {

@@ -3,6 +3,10 @@ import { PlainProvider } from "@team-plain/react-chat-ui";
 import "../styles/stylesheet.css";
 import type { AppProps } from "next/app";
 
+function appKeyNotDefined(): string {
+  throw new Error("App Key not defined");
+}
+
 // Function that fetches the signed JWT token
 async function getCustomerToken() {
   return fetch("/api/get-customer-token")
@@ -11,8 +15,7 @@ async function getCustomerToken() {
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const appKey =
-    process.env.NEXT_PUBLIC_APP_KEY || "appKey_uk_01FVCA9P14STJM1YCQ0QVBW92N";
+  const appKey = process.env.NEXT_PUBLIC_APP_KEY || appKeyNotDefined();
 
   return (
     <PlainProvider
