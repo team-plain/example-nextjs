@@ -4,9 +4,9 @@ This is an example of a NextJS project using the React Chat UI from Plain.com.
 
 ![Plain React Chat UI](/public/chat.gif)
 
-<br /> <br />
+<br /> 
 There are a few steps you need to do in order for the chat to work. Follow the guide below:
-<br /> <br /> <br />
+<br /> <br />
 
 ## Step 1: 📦 Install packages
 
@@ -46,10 +46,10 @@ The app key is the unique ID for your workspace app. You need it to instruct the
 
 To find the appKey go to the workspace app you created in Step 2 and copy it. It should look something like: `appKey_uk_01FTGG89Q8N0HEN3572CRN0F2T`
 
-Add it to the `PlainProvider` here [/pages/\_app.ts](/pages/_app.ts)
+Create a `.env.local` file in the root folder and add it like this:
 
 ```
-<PlainProvider appKey="ADD_YOUR_APP_KEY_HERE" getCustomerToken={getCustomerToken} >
+NEXT_PUBLIC_APP_KEY='appKey_uk_01FVCA9P14STJM1YCQ0QVBW92N'
 ```
 
 <br /> <br />
