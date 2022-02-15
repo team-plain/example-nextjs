@@ -4,8 +4,9 @@ This is an example of a NextJS project using the React Chat UI with [Plain](http
 
 <img src="/public/chat.png" width="600" />
 
-<br /> 
+
 To get set-up follow the steps below! You will need early acces to Plain. You can request access from [plain.com](https://plain.com)
+
 <br /> <br />
 
 ## Step 1: 📦 Clone & install this example
@@ -16,7 +17,7 @@ After cloning this repository, run this to install dependencies
 npm install
 ```
 
-<br /> <br />
+<br />
 
 ## Step 2: 🔐 Create a private/public key pair
 
@@ -28,7 +29,7 @@ From within this repo you can run this script to generate a public and private k
 bash <(curl -fsSL https://raw.githubusercontent.com/team-plain/generate-rsa-key-script/main/generate_rsa_key_pairs.sh)
 ```
 
-<br /> <br />
+<br />
 
 ## Step 3: 🖥 Create a workspace app
 
@@ -38,7 +39,7 @@ Then select your workspace and then navigate to “Apps” from the top left men
 
 Once you’ve created your Workspace App, press [+ Add public key] and paste the entire contents of `plain.key.pem.pub` we generated above `(including the ---BEGINS..`
 
-<br /> <br />
+<br />
 
 ## Step 4: 🔑 Add your appKey
 
@@ -52,7 +53,7 @@ Run this command to create a `.env.local.` containing your app key. Replace `app
 touch env.local && echo -e "NEXT_PUBLIC_APP_KEY=appKey_XXXX" >> .env.local
 ```
 
-<br /> <br />
+<br />
 
 ## Step 5: 🏃‍♀️ Run the example!
 
@@ -72,4 +73,7 @@ export PRIVATE_KEY=$(cat path-to/your-key.key.pem) && npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You should now see the React Chat UI and be able to chat to your workspace at [https://app.plain.com](https://app.plain.com/)
 
-<br /> <br />
+
+----
+
+Any questions? Email help@plain.com or open an issue!
