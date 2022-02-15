@@ -71,7 +71,7 @@ If you did change the name or path you need to insert that like the example belo
 export PRIVATE_KEY=$(cat path-to/your-key.key.pem) && npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You should now see the React Chat UI and be able to chat to your workspace at [https://app.plain.com](https://app.plain.com/)
+Open [http://localhost:4000](http://localhost:4000) with your browser to see the result. You should now see the React Chat UI and be able to chat to your workspace at [https://app.plain.com](https://app.plain.com/)
 
 
 ----
