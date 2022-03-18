@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import type { NextApiRequest, NextApiResponse } from "next";
 
 function privateKeyNotDefined(): string {
   throw new Error("KEY not defined");
@@ -35,14 +34,7 @@ type Customer = {
   externalId: string;
 };
 
-type Data = {
-  customerToken: string;
-};
-
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
+export default function getCustomerToken() {
   // The JWT must include a customer with the following form. See above for more details on the form.
   const customer: Customer = {
     fullName: "Garnett Hermann",
@@ -62,5 +54,5 @@ export default function handler(
     expiresIn: "1h",
   });
 
-  res.status(200).json({ customerToken: token });
+  return token;
 }
