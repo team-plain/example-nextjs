@@ -25,9 +25,8 @@ a {
   margin: 0 auto;
 }
 
-.timeline__wrapper {
+.chat__wrapper {
   background: #fff;
   margin: 32px 0 0;
-  padding: 24px;
   border: 1px solid rgba(0, 0, 0, 0.15);
 }

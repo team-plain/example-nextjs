@@ -35,14 +35,13 @@ type Customer = {
 };
 
 type Data = {
-  customerToken: string;
+  customerJwt: string;
 };
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  
   // Depending on how your back-end works this is where you would
   // have to fetch the current customer's details.
   const customer: Customer = {
@@ -55,13 +54,13 @@ export default function handler(
     externalId: "your_id",
   };
 
-  // Using the above customer detiails you then sign a JWT 
-  // using your private key. This ensures Plain can trust 
+  // Using the above customer detiails you then sign a JWT
+  // using your private key. This ensures Plain can trust
   // the customer's details when we receive them.
   const token = jwt.sign(customer, getPrivateKey(), {
     algorithm: "RS256",
     expiresIn: "1h",
   });
 
-  res.status(200).json({ customerToken: token });
+  res.status(200).json({ customerJwt: token });
 }

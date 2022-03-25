@@ -12,10 +12,10 @@ function getAppKey(): string {
 }
 
 // Function that fetches the signed JWT token
-async function getCustomerToken() {
-  return fetch("/api/get-customer-token")
+async function getCustomerJwt() {
+  return fetch("/api/get-customer-jwt")
     .then((res) => res.json())
-    .then((res) => res.customerToken);
+    .then((res) => res.customerJwt);
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -25,7 +25,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       appKey={getAppKey()}
       // It's up to you how you want to expose the customer token to the frontend
       // In this example we 've exposed via an API
-      getCustomerToken={getCustomerToken}
+      // If you do not pass the customer prop, then it defaults to a logged out customer
+      customer={{
+        type: "logged-in",
+        getCustomerJwt,
+      }}
     >
       <Component {...pageProps} />
     </PlainProvider>
