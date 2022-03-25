@@ -1,4 +1,4 @@
-import { Timeline } from "@team-plain/react-chat-ui";
+import { Chat } from "@team-plain/react-chat-ui";
 import type { NextPage } from "next";
 import Head from "next/head";
 
@@ -12,12 +12,12 @@ const Home: NextPage = () => {
       </Head>
 
       <h1>Plain NextJS Example</h1>
-      <div className="timeline__wrapper">
+      <div className="chat__wrapper">
         {/* 
-          Add the Timeline component anywhere on your site.
+          Add the Chat component anywhere on your site.
           Make sure it's wrapped in the PlainProvider
         */}
-        <Timeline />
+        <Chat />
       </div>
     </div>
   );
