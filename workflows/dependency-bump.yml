@@ -1,0 +1,17 @@
+name: Dependency bump
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Every 6AM on Mondays
+    - cron: "0 6 * * 1"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.19'
+      - run: npm ci
