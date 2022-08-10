@@ -1,6 +1,6 @@
-import { Chat } from "@team-plain/react-chat-ui";
-import type { NextPage } from "next";
-import Head from "next/head";
+import { Chat } from '@team-plain/react-chat-ui';
+import type { NextPage } from 'next';
+import Head from 'next/head';
 
 const Home: NextPage = () => {
   return (
