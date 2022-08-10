@@ -1,0 +1,9 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    allow:
+      # Allow updates for react-chat-ui
+      - dependency-name: "@team-plain/react-chat-ui"
