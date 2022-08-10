@@ -1,6 +1,7 @@
 import { Chat } from '@team-plain/react-chat-ui';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import React from 'react';
 
 const Home: NextPage = () => {
   return (
