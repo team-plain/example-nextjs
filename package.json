@@ -5,9 +5,8 @@
     "dev": "next dev -p 4000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
     "typecheck": "tsc",
-    "lint:eslint": "eslint --ext .ts,.tsx"
+    "lint": "eslint --ext .ts,.tsx"
   },
   "dependencies": {
     "@team-plain/react-chat-ui": "5.0.2",
