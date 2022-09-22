@@ -36,6 +36,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
+# jetbrains
+.idea
+
 # public/private keys
 /keys
 *.key.pem

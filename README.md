@@ -50,7 +50,7 @@ To find the appKey go to the workspace app you created in Step 2 and copy it. It
 Run this command to create a `.env.local.` containing your app key. Replace `appKey_XXXX` with your appKey.
 
 ```
-touch env.local && echo -e "NEXT_PUBLIC_APP_KEY=appKey_XXXX" >> .env.local
+echo -e "NEXT_PUBLIC_APP_KEY=appKey_XXXX" >> .env.local
 ```
 
 <br />
