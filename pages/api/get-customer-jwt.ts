@@ -48,7 +48,7 @@ export default function handler(
     fullName: "Grace Hopper",
     shortName: "Grace",
     email: {
-      email: "grace.hopper@nasa.com",
+      email: "grace.hopper@example.com",
       isVerified: false,
     },
     externalId: "your_id",
