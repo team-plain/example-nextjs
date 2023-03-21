@@ -9,7 +9,7 @@
     "lint": "eslint --ext .ts,.tsx"
   },
   "dependencies": {
-    "@team-plain/react-chat-ui": "6.2.0",
+    "@team-plain/react-chat-ui": "6.2.3",
     "@types/jsonwebtoken": "^8.5.8",
     "@typescript-eslint/parser": "^5.33.0",
     "eslint-config-prettier": "^8.5.0",
